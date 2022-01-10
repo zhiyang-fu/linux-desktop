@@ -1,0 +1,38 @@
+#see archinstall github
+#hardware
+xf86-video-intel #DDX 2D acceleration in Xorg
+mesa #DRI drive for 3D acceleration
+libva-intel-driver #intel opensource drives supporting VA-API for HD Graphics
+#vulkan-intel #Vulkan support for Ivy Bridge or newer
+
+#xorg
+xorg
+xorg-init
+
+#common pakages for all desktop environments
+openssh
+htop
+wget
+xdg-utils
+p7zip
+bat
+exa
+tree
+tmux
+rsync
+bash-completion
+xclip
+xbindkeys
+wmctrl
+engrampa
+unzip
+zip
+
+#xfce4
+xfce4
+xfce4-goodies
+#xarchiver
+
+#display manager
+lightdm
+lightdm-gtk-greeter
