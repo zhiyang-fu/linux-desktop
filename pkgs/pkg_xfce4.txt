@@ -30,6 +30,7 @@ zip
 #xfce4
 xfce4
 xfce4-goodies
+gvfs
 #xarchiver
 
 #display manager

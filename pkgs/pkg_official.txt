@@ -13,4 +13,5 @@ texlive-most
 #exa                             # ls replacement
 #bat
 #wine                            # A compatibility layer for running Windows programs
+#the_silver_searcher             # ag
 
