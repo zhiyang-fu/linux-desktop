@@ -163,10 +163,10 @@ passwd zyfu
 pacman --noconfirm --needed -Sy networkmanager network-manager-applet
 systemctl enable NetworkManager.service
 
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-cd ../ && rm -rfv yay
+# git clone https://aur.archlinux.org/yay.git
+# cd yay
+# makepkg -si
+# cd ../ && rm -rfv yay
 
 echo "Installed successfully!"
 echo "umount -R /mnt"
