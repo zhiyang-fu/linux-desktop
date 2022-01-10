@@ -7,7 +7,6 @@ libva-intel-driver #intel opensource drives supporting VA-API for HD Graphics
 
 #xorg
 xorg
-xorg-init
 
 #common pakages for all desktop environments
 openssh
