@@ -1,0 +1,6 @@
+yay -S brave-dev-bin
+chrome://flags
+search for scroll (Tab)
+
+settings:
+search-engine: google

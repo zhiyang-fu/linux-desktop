@@ -1,0 +1,7 @@
+bluetoothctl
+power on
+agent on
+scan on
+pair xx:xx
+connect xx:xx
+trust xx:xx
