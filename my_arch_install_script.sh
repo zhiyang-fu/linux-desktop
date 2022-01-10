@@ -5,7 +5,7 @@
 # https://github.com/mietinen/archer/blob/master/archer.sh
 # https://www.youtube.com/watch?v=ybvwikNlx9I
 # https://octetz.com/docs/2020/2020-2-16-arch-windows-install/
-ENCRYPT=true #setup dm-crypt/luks on root partition
+ENCRYPT=false #setup dm-crypt/luks on root partition
 
 archiso() {
 echo "Zhiyang's Arch Installer"
