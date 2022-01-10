@@ -1,5 +1,4 @@
-adobe-source-han-sans-cn-fonts
-adobe-source-han-serif-cn-fonts
+noto-fonts-cjk
 ttf-dejavu
 otf-libertinus
 noto-fonts-emoji
