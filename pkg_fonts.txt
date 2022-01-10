@@ -1,0 +1,7 @@
+adobe-source-han-sans-cn-fonts
+adobe-source-han-serif-cn-fonts
+ttf-dejavu
+otf-libertinus
+noto-fonts-emoji
+otf-san-francisco-mono
+apple-fonts

@@ -1,0 +1,6 @@
+pavucontrol
+pulseaudio
+pulseaudio-bluetooth
+pulseaudio-alsa
+blueman
+bluez-utils
