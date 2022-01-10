@@ -1,0 +1,10 @@
+# Pacman foreign packages:
+brave-dev-bin                       # Web browser that blocks ads and trackers by default (binary release)
+papirus-icon-theme-git          # A free and open source SVG icon theme based on Paper Icon Set
+dropbox                         # A free service that lets you bring your photos, docs, and videos anywhere and share them easily.
+imagej
+mailspring                      # A beautiful, fast and maintained fork of Nylas Mail by one of the original authors.
+pubs                            # Your bibliography on the command line
+realvnc-vnc-viewer              # VNC remote desktop client software by RealVNC
+tnef                            # Program for unpacking ms-tnef MIME attachment
+zoom

@@ -1,0 +1,16 @@
+# Pacman native packages:
+cmake                           # A cross-platform open-source make system
+gv                              # A program to view PostScript and PDF documents
+inkscape                        # Professional vector graphics editor
+lowdown                         # A simple Markdown translator
+neofetch                        # A CLI system information tool written in BASH that supports displaying images.
+sxiv                            # Simple X Image Viewer
+synology-drive-client           # Synology Drive Client, the desktop utility of the DSM add-on package, Synology Drive Server
+zathura
+texlive-most
+
+#optional
+#exa                             # ls replacement
+#bat
+#wine                            # A compatibility layer for running Windows programs
+
