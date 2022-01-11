@@ -7,6 +7,8 @@ neofetch                        # A CLI system information tool written in BASH 
 sxiv                            # Simple X Image Viewer
 zathura
 texlive-most
+system-config-printer           # A CUPS printer configuration tool and status applet
+cups                            # The CUPS Printing System - daemon package
 
 #optional
 #exa                             # ls replacement
