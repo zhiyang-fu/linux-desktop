@@ -8,4 +8,5 @@ pubs                            # Your bibliography on the command line
 realvnc-vnc-viewer              # VNC remote desktop client software by RealVNC
 tnef                            # Program for unpacking ms-tnef MIME attachment
 zoom
-synology-drive           # Synology Drive Client, the desktop utility of the DSM add-on package, Synology Drive Server
+remmina-git                     # windows RDP client
+synology-drive           	# Synology Drive Client, the desktop utility of the DSM add-on package, Synology Drive Server
