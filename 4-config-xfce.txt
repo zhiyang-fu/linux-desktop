@@ -1,0 +1,47 @@
+xfconf-xml-dir=.config/xfce4/xfconf/xfce-perchannel-xml
+
+# xfce setting manager
+## apperance: $xfconf-xml-dir/xsettings.xml
+style: highcontrast
+icons: papirus-light
+default-fonts: SF Pro Display Regular 10
+default-mono: SF Mono Regular 10
+
+# desktop: $xfconf-xml-dir/xfce4-desktop$
+mkdir -p ~/.wallpapers
+cp linux-desktop/bkgs/*.jpg ~/.wallpapers
+
+# file manager: thunar
+Display: view new folder using list view
+Behavior: Open folders in new tabs on middle click
+
+#panel: xfce4-panel
+delete pannel 2
+panel 1:
+display: row size = 24 pixels
+appearance: fixed icon size = 24
+items:
+remove application menu
+add whisker menu, move to the top
+double click whisker menu:
+change icon to archlinux-logo
+position categories next to panel button
+position search entry next to panel button
+workspace number to 2
+delete action button
+
+#window manager: xfwm4.xml xfce4-keyboard-shortcuts.xml
+style: daloa
+title font: SF Pro Display Medium
+title alignment: left
+button layout: close & title
+
+#window manger tweaks: xfwm4.xml
+
+#keyboard: xfce4-keyboard-shortcuts.xml
+
+#terminal setting: .config/xfce4/terminal/terminalrc
+
+#mousepad setting: .conf/dconf/user
+
+
