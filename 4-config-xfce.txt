@@ -42,6 +42,6 @@ button layout: close & title
 
 #terminal setting: .config/xfce4/terminal/terminalrc
 
-#mousepad setting: .conf/dconf/user
+#mousepad setting: .config/dconf/user
 
 

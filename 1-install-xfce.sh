@@ -16,4 +16,6 @@ systemctl enable lightdm.service
 systemctl start lightdm.service
 systemctl enable bluetooth.service
 systemctl start bluetooth.service
+systemctl enable cups.service
+systemctl start cups.service
 

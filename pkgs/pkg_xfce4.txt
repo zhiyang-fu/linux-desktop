@@ -23,6 +23,7 @@ bash-completion
 xclip
 xbindkeys
 wmctrl
+xdotool
 engrampa
 unzip
 zip
