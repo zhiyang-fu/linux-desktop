@@ -25,7 +25,7 @@ timedatectl set-ntp true
 # Filesystem mount warning
 echo "This script will create and format the partitions as follows:"
 echo "/dev/sda1 - 512Mib will be mounted as /boot/efi"
-echo "/dev/sda2 - 8GiB will be used as swap"
+echo "/dev/sda2 - 4GiB will be used as swap"
 echo "/dev/sda3 - rest of space will be mounted as /"
 read -p 'Continue? [y/N]: ' fsok
 if ! [ $fsok = 'y' ] && ! [ $fsok = 'Y' ]
@@ -48,7 +48,7 @@ sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk /dev/sda
   p # primary partition
   2 # partion number 2
     # default, start immediately after preceding partition
-  +8G # 8 GB swap parttion
+  +4G # 4 GB swap parttion
   n # new partition
   p # primary partition
   3 # partion number 3
@@ -72,7 +72,6 @@ fi
 # FORMAT and MOUNT
 # the partitions using GPT for efi boot
 mkfs.fat -F 32 /dev/sda1
-mkswap /dev/sda2
 
 if [ "$ENCRYPT" = true ]; then
     mkfs.ext4 /dev/mapper/cryptroot
@@ -84,6 +83,7 @@ fi
 
 mkdir -pv /mnt/boot/efi
 mount /dev/sda1 /mnt/boot/efi
+mkswap /dev/sda2
 swapon /dev/sda2
 
 
