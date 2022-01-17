@@ -12,8 +12,6 @@ echo
 grep -oE '^[^(#|[:space:])]*' pkgs/pkg_xfce4.txt > pkgs/pkg_xfce4_clean.txt
 pacman -Sy --needed --noconfirm $(<pkgs/pkg_xfce4_clean.txt)
 pacman -Sy --needed $(<pkgs/pkg_audio.txt)
-systemctl enable lightdm.service
-systemctl start lightdm.service
 systemctl enable bluetooth.service
 systemctl start bluetooth.service
 systemctl enable cups.service
