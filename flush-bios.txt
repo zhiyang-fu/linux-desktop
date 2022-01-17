@@ -1,0 +1,7 @@
+#change boot to UEFI
+#download iso from lenovo support
+
+yay -S geteltorito
+geteltorito.pl -o <image>.img <image>.iso
+lsblk -l
+sudo dd if=<image>.img of=<destination> bs=512K status=progress oflag=sync
