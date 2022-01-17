@@ -24,7 +24,7 @@ timedatectl set-ntp true
 
 # Filesystem mount warning
 echo "This script will create and format the partitions as follows:"
-echo "/dev/sda1 - 512Mib will be mounted as /efi"
+echo "/dev/sda1 - 512Mib will be mounted as /boot/efi"
 echo "/dev/sda2 - 8GiB will be used as swap"
 echo "/dev/sda3 - rest of space will be mounted as /"
 read -p 'Continue? [y/N]: ' fsok
@@ -82,8 +82,8 @@ else
     mount /dev/sda3 /mnt
 fi
 
-mkdir -p /mnt/efi
-mount /dev/sda1 /mnt/efi
+mkdir -pv /mnt/boot/efi
+mount /dev/sda1 /mnt/boot/efi
 swapon /dev/sda2
 
 
@@ -105,7 +105,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 transit() {
     #copy this file
     cp "$0" /mnt/root/arch_install.sh
-    cp -rv linux-desktop /mnt/home/zyfu
+    cp -rv linux-desktop /mnt/root
     arch-chroot /mnt /bin/bash /root/arch_install.sh --chroot
 }
 
@@ -150,7 +150,7 @@ sed -i 's/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"cryptdevice=UUID={root_uu
 fi
 
 # grub-install
-grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
 #user and password
@@ -165,7 +165,6 @@ pacman --noconfirm --needed -Sy networkmanager network-manager-applet
 systemctl enable NetworkManager.service
 pacman --noconfirm -Sy lightdm lightdm-gtk-greeter
 systemctl enable lightdm.service
-systemctl start lightdm.service
 
 
 # git clone https://aur.archlinux.org/yay.git
