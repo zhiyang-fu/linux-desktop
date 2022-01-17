@@ -105,6 +105,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 transit() {
     #copy this file
     cp "$0" /mnt/root/arch_install.sh
+    cp -rv linux-desktop /mnt/home/zyfu
     arch-chroot /mnt /bin/bash /root/arch_install.sh --chroot
 }
 
@@ -162,6 +163,10 @@ passwd zyfu
 #enable networking
 pacman --noconfirm --needed -Sy networkmanager network-manager-applet
 systemctl enable NetworkManager.service
+pacman --noconfirm -Sy lightdm lightdm-gtk-greeter
+systemctl enable lightdm.service
+systemctl start lightdm.service
+
 
 # git clone https://aur.archlinux.org/yay.git
 # cd yay
