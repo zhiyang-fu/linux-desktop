@@ -25,8 +25,7 @@ timedatectl set-ntp true
 # Filesystem mount warning
 echo "This script will create and format the partitions as follows:"
 echo "/dev/sda1 - 512Mib will be mounted as /boot/efi"
-echo "/dev/sda2 - 4GiB will be used as swap"
-echo "/dev/sda3 - rest of space will be mounted as /"
+echo "/dev/sda2 - rest of space will be mounted as /"
 read -p 'Continue? [y/N]: ' fsok
 if ! [ $fsok = 'y' ] && ! [ $fsok = 'Y' ]
 then
@@ -48,11 +47,6 @@ sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk /dev/sda
   p # primary partition
   2 # partion number 2
     # default, start immediately after preceding partition
-  +4G # 4 GB swap parttion
-  n # new partition
-  p # primary partition
-  3 # partion number 3
-    # default, start immediately after preceding partition
     # default, extend partition to end of disk
   a # make a partition bootable
   1 # bootable partition is partition 1 -- /dev/sda1
@@ -63,10 +57,10 @@ EOF
 
 # ENCRYPT
 if [ "$ENCRYPT" = true ]; then
-cryptsetup -y --use-random luksFormat /dev/sda3
+cryptsetup -y --use-random luksFormat /dev/sda2
 # -y: interactively requests the passphrase twice
 # --use-random: uses /dev/random to produce keys
-cryptsetup luksOpen /dev/sda3 cryptroot
+cryptsetup luksOpen /dev/sda2 cryptroot
 fi
 
 # FORMAT and MOUNT
@@ -77,14 +71,14 @@ if [ "$ENCRYPT" = true ]; then
     mkfs.ext4 /dev/mapper/cryptroot
     mount /dev/mapper/cryptroot /mnt
 else
-    mkfs.ext4 /dev/sda3
-    mount /dev/sda3 /mnt
+    mkfs.ext4 /dev/sda2
+    mount /dev/sda2 /mnt
 fi
 
 mkdir -pv /mnt/boot/efi
 mount /dev/sda1 /mnt/boot/efi
-mkswap /dev/sda2
-swapon /dev/sda2
+#mkswap /dev/sda2
+#swapon /dev/sda2
 
 
 # Install base/essential packages using pacstrap
@@ -141,7 +135,7 @@ sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
 # bootloader
 pacman --noconfirm --needed -Sy grub efibootmgr
 if [ "$ENCRYPT" = true ]; then
-rootid=$(blkid --output export /dev/sda3 | sed --silent 's/^UUID=//p')
+rootid=$(blkid --output export /dev/sda2 | sed --silent 's/^UUID=//p')
 # sed -i '/^GRUB_CMDLINE_LINUX=/s/=""/="cryptdevice=UUID='$rootid':cryptroot root=\/dev\/mapper\/cryptroot"/' /etc/default/grub
 # sed -i /GRUB_CMDLINE_LINUX=/c\GRUB_CMDLINE_LINUX=\"cryptdevice=/dev/disk/by-uuid/${rootid}:cryptroot\" /etc/default/grub
 sed -i 's/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"cryptdevice=UUID={root_uuid}:cryptlvm rootfstype={ext4}\"/' /etc/default/grub
