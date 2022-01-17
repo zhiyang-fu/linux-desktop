@@ -19,3 +19,5 @@ systemctl start bluetooth.service
 systemctl enable cups.service
 systemctl start cups.service
 
+mkdir -p ~/.wallpapers
+cp -r linux-desktop/bkgs/*.jpg ~/.wallpapers
