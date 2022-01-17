@@ -10,7 +10,7 @@ makepkg -si
 cd ../ && rm -rfv yay
 
 echo "=====> installing fonts"
-cat pkg_fonts.txt
+cat pkgs/pkg_fonts.txt
 echo
 # requires sudo
 # --noconfirm is used to select all packages from groups

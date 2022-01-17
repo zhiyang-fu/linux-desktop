@@ -34,5 +34,9 @@ xfce4-goodies
 gvfs
 
 #display manager
-#lightdm
-#lightdm-gtk-greeter
+lightdm
+lightdm-gtk-greeter
+
+#network manager
+networkmanager
+networkmanager-applet

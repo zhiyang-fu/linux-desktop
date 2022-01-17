@@ -11,11 +11,15 @@ echo
 # --noconfirm is used to select all packages from groups
 grep -oE '^[^(#|[:space:])]*' pkgs/pkg_xfce4.txt > pkgs/pkg_xfce4_clean.txt
 pacman -Sy --needed --noconfirm $(<pkgs/pkg_xfce4_clean.txt)
-pacman -Sy --needed $(<pkgs/pkg_audio.txt)
+pacman -Sy --needed --noconfirm $(<pkgs/pkg_audio.txt)
 systemctl enable bluetooth.service
 systemctl start bluetooth.service
 systemctl enable cups.service
 systemctl start cups.service
+systemctl enable NetworkManager.service
+systemctl start NetworkManager.service
+systemctl enable lightdm.service
+systemctl start lightdm.service
 
 mkdir -p ~/.wallpapers
-cp -r linux-desktop/bkgs/*.jpg ~/.wallpapers
+cp -rv bkgs/*.jpg ~/.wallpapers

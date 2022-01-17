@@ -99,7 +99,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 transit() {
     #copy this file
     cp "$0" /mnt/root/arch_install.sh
-    cp -rv linux-desktop /mnt/root
+    cp 1-install-xfce.sh /mnt/root/install-xfce.sh
     arch-chroot /mnt /bin/bash /root/arch_install.sh --chroot
 }
 
@@ -154,17 +154,8 @@ sed --in-place 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+ALL\)/\1/' /etc/sudoers
 echo "Set password for new user zyfu"
 passwd zyfu
 
-#enable networking
-pacman --noconfirm --needed -Sy networkmanager network-manager-applet
-systemctl enable NetworkManager.service
-pacman --noconfirm -Sy lightdm lightdm-gtk-greeter
-systemctl enable lightdm.service
-
-
-# git clone https://aur.archlinux.org/yay.git
-# cd yay
-# makepkg -si
-# cd ../ && rm -rfv yay
+#install xfce desktop manager
+/bin/bash /root/install-xfce.sh
 
 echo "Installed successfully!"
 echo "umount -R /mnt"
