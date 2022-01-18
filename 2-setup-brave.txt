@@ -4,3 +4,7 @@ search for scroll (Tab)
 
 settings:
 search-engine: google
+brave colors: Light
+Hide Brave Rewards button
+Always show full URLs
+Use system title bar and borders
