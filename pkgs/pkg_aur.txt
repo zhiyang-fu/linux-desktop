@@ -10,3 +10,4 @@ tnef                            # Program for unpacking ms-tnef MIME attachment
 zoom
 remmina-git                     # windows RDP client
 synology-drive           	# Synology Drive Client, the desktop utility of the DSM add-on package, Synology Drive Server
+bash-complete-alias
