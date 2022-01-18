@@ -5,3 +5,10 @@ scan on
 pair xx:xx
 connect xx:xx
 trust xx:xx
+
+
+add the following after "module-switch-on-port-available" in
+/etc/pulse/default.pa
+
+### Automatically switch to newly-connected devices
+load-module module-switch-on-connect
