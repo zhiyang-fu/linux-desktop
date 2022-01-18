@@ -4,11 +4,12 @@ cat $HOME/.ssh/id_ed25519.pub
 copy the key fingerprint to github ssh key box 
 
 # change remote origin to ssh format
+git config --global user.email zyfu@cambridge
+git config --global user.name "Zhiyang Fu"
+
 git remote -v
 git remote remove origin
 git remote add origin git@github.com:your-id/your-repository.git
 git push -u origin master
 
-git config --global user.email zyfu@cambridge
-git config --global user.name "Zhiyang Fu"
 

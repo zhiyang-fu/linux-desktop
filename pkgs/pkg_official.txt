@@ -9,12 +9,13 @@ zathura
 texlive-most
 system-config-printer           # A CUPS printer configuration tool and status applet
 cups                            # The CUPS Printing System - daemon package
-plocate                         # faster locate than mlocate, `updatedb` before
-using locate
+plocate                         # faster locate than mlocate, `updatedb` before using locate
+wine
+bat
 
 #optional
 #exa                             # ls replacement
-#bat
+#bat                             # cat replacement
 #wine                            # A compatibility layer for running Windows programs
 #the_silver_searcher             # ag
 
