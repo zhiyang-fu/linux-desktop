@@ -6,6 +6,7 @@ lowdown                         # A simple Markdown translator
 neofetch                        # A CLI system information tool written in BASH that supports displaying images.
 sxiv                            # Simple X Image Viewer
 zathura
+zathura-pdf-poppler
 texlive-most
 system-config-printer           # A CUPS printer configuration tool and status applet
 cups                            # The CUPS Printing System - daemon package
