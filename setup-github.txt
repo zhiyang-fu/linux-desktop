@@ -1,7 +1,7 @@
 Go to github.com/settings/keys
 ssh-keygen -t ed25519 -C "your_email@example.com"
 cat $HOME/.ssh/id_ed25519.pub
-copy the key fingerprint to github ssh key box 
+copy the key fingerprint to github ssh key box
 
 # change remote origin to ssh format
 git config --global user.email zyfu@cambridge
@@ -13,3 +13,30 @@ git remote add origin git@github.com:your-id/your-repository.git
 git push -u origin master
 
 
+#branches
+#create local branch
+dotfiles branch chaos
+#create remote branch
+dotfiles push -u origin chaos:chaos
+#track local chaos with remote origin/chaos
+dotfiles switch chaos
+dotfiles branch -u origin/chaos
+
+#delete remote branch
+dotfiles push -d origin chaos
+#delete local branch
+dotfiles branch -d chaos
+
+#branch status (local&remote)
+dotfiles branch -vv
+
+#merge locally
+dotfiles switch master
+dotfiles merge chaos
+
+#rebase maskes for a cleaner history, linear history
+# master is the base, rebase develop onto master
+dotfiles rebase master develop
+#fast-forward merge develop onto master
+dotfiles switch master
+dotfiles merge develop
