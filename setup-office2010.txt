@@ -1,0 +1,84 @@
+see https://confluence.jaytaala.com/display/TKB/Install+Microsoft+Office+2010+with+wine+on+Arch+based+Linux+distros
+
+# set to use WINE32
+export WINEPREFIX=$HOME/.wine32
+export WINEARCH=win32
+
+sudo pacman -S samba wine
+yay -S ttf-ms-fonts (optional)
+
+winecfg
+select Windows XP
+add riched20 libraries
+wine en_office_professional_plus_2010_x86_x64_dvd_515529.iso
+#use this one: it has both 32 bit and 64 bit office
+#only install word excel powerpoints related stuff
+
+if still not working
+sudo pacman -S winetricks gnutls lib32-gnutls
+
+WINEPREFIX=~/.wine32 winetricks corefont
+
+
+
+#### archive for:
+https://www.youtube.com/watch?v=Un0u5pgFIG4&list=WL&index=3
+
+Tutorial Arch Linux : How to Install Microsoft Office 2010 on Arch Linux Using Latest Wine Version
+
+STEP 1 :
+- Enable Multilib Repository on pacman.conf
+- sudo pacman -Syy
+- sudo pacman -S wine winetricks samba
+- install "ttf-ms-fonts" from the AUR (Arch User Repo)
+
+STEP 2 :
+Make Wine Dir (fresh/new) on your home dir, for Office and launch the installer office setup
+
+mkdir ~/.office2010
+WINEPREFIX=~/.office2010 WINEARCH=win32 installerofficepath/setup.exe
+
+STEP 3 :
+Add Library "riched20" for solve problem with blank MS Office Power Point
+
+WINEPREFIX=~/.office2010 winecfg
+
+STEP 4 :
+Solved Font rendering using regedit
+
+----
+
+REGEDIT4
+
+[HKEY_CURRENT_USER\Control Panel\Desktop]
+"FontSmoothing"="2"
+"FontSmoothingGamma"=dword:00000578
+"FontSmoothingOrientation"=dword:00000001
+"FontSmoothingType"=dword:00000002
+
+-----
+
+WINEPREFIX=~/.office2010 wine regedit.exe solve.reg
+
+
+Everything is running ok, but some office app error... like ms onenote...
+
+Note :
+I Use MS OFFICE 2010 32 Bit
+Do not forget to connect to the INTERNET!! (for download the wine gecko or wine library if needed)
+I Use the latest Wine Release Version (wine-6.16) on Arch Linux  [16/09/2021]
+
+ZONABINER.COM
+
+
+some bug :
+1.  Glitch graph in ms excel
+2.  Show equation not showing in excel graph
+3.  Equation not working in ms word
+
+
+How to solve :
+
+sudo pacman -S gnutls samba lib32-gnutls
+WINEPREFIX=~/.office2010 winetricks corefonts dotnet20 windowscodecs riched20
+
