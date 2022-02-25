@@ -13,6 +13,7 @@ cups                            # The CUPS Printing System - daemon package
 plocate                         # faster locate than mlocate, `updatedb` before using locate
 wine
 bat
+cpio                             # required by ssg5
 
 #optional
 #exa                             # ls replacement
