@@ -14,6 +14,8 @@ plocate                         # faster locate than mlocate, `updatedb` before 
 wine
 bat
 cpio                             # required by ssg5
+biber                             # required for latex compile
+ntfs-3g                         # required for windows ntfs file format
 
 #optional
 #exa                             # ls replacement
